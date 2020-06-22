@@ -1,0 +1,23 @@
+#header {
+    background: #333333;
+    color: #ffffff;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+div.list-group > a {
+    color: grey; 
+}
+
+div.form-inline{
+    margin: 10px 0px;
+}
+
+.fiveDayForecastHeader {
+    margin: 10px 0px;
+}
+
+div.card.bg-primary{
+    margin: 10px;
+    color: white;
+}

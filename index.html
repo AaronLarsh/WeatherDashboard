@@ -10,12 +10,98 @@
         <title>Weather Dashboard</title>
     </head>
     <body>                            
-
+        <header id="header">
+                <div class="container text-center">
+                    <div class="row">
+                        <div class="col">
+                            <h1>Weather Dashboard</h1>
+                        </div>
+                    </div>
+                </div>
+        </header>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-3">
+                    <form >
+                        <h5>Search for a City:</h5>
+                        <div class="form-inline">
+                            <input type="text" class="form-control" id="searchForCity" name="searchForCity">
+                            <input type="submit" class="btn btn-primary" id="searchForCitySubmitBtn" value="Submit">
+                        </div>
+                    </form>
+                    <div class="list-group">
+                        <a href="#" class="list-group-item">Item One</a>
+                        <a href="#" class="list-group-item">Item Two</a>
+                        <a href="#" class="list-group-item">Item Three</a>
+                        <a href="#" class="list-group-item">Item Four</a>
+                        <a href="#" class="list-group-item">Item 5</a>
+                        <a href="#" class="list-group-item">Item 6</a>
+                        <a href="#" class="list-group-item">Item 7</a>
+                        <a href="#" class="list-group-item">Item 8</a>
+                    </div>
+                </div>
+                <div class="col-9">
+                    <div class="card">
+                        <div class="card-body">
+                            <h2 class="card-title">Atlanta (8/15/2019)</h2>
+                            <p class="card-text">Temperature: 98.3 F</p>
+                            <p class="card-text">Humidity: 41%</p>
+                            <p class="card-text">Wind Speed: 4.7 MPH</p>
+                            <!-- js to add differenct class based on uv index class="bg-success bg-warning bg-danger" for span id="uvIndexColor"-->
+                            <p class="card-text">UV Index: <span id="uvIndexColor">9.49</span></p>
+                        </div>
+                    </div>
+                    <h3 class="fiveDayForecastHeader">5-day Forecast:</h3>
+                    <div class="card-group">
+                    <div class="card bg-primary">
+                        <div class="card-body fiveDay">
+                            <h5 class="card-title">8/15/2019</h5>
+                            <p class="card-text">Icon</p>
+                            <p class="card-text">Temp: 98.3 F</p>
+                            <p class="card-text">Humidity: 41%</p>
+                        </div>
+                    </div>
+                    <div class="card bg-primary">
+                        <div class="card-body fiveDay">
+                            <h5 class="card-title">8/15/2019</h5>
+                            <p class="card-text">Icon</p>
+                            <p class="card-text">Temp: 98.3 F</p>
+                            <p class="card-text">Humidity: 41%</p>
+                        </div>
+                    </div>
+                    <div class="card bg-primary">
+                        <div class="card-body fiveDay">
+                            <h5 class="card-title">8/15/2019</h5>
+                            <p class="card-text">Icon</p>
+                            <p class="card-text">Temp: 98.3 F</p>
+                            <p class="card-text">Humidity: 41%</p>
+                        </div>
+                    </div>
+                    <div class="card bg-primary">
+                        <div class="card-body fiveDay">
+                            <h5 class="card-title">8/15/2019</h5>
+                            <p class="card-text">Icon</p>
+                            <p class="card-text">Temp: 98.3 F</p>
+                            <p class="card-text">Humidity: 41%</p>
+                        </div>
+                    </div>
+                    <div class="card bg-primary">
+                        <div class="card-body fiveDay">
+                            <h5 class="card-title">8/15/2019</h5>
+                            <p class="card-text">Icon</p>
+                            <p class="card-text">Temp: 98.3 F</p>
+                            <p class="card-text">Humidity: 41%</p>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh6U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
         <script src="asset/weather.js"></script>
     </body>
 </html>
