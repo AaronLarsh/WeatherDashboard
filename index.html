@@ -33,14 +33,14 @@
                     </div>
                 </div>
                 <div class="col-9">
-                    <div class="card">
+                    <div id="mainWeatherBody"class="card">
                         <div class="card-body">
-                            <h2 class="card-title">Atlanta (8/15/2019)</h2>
-                            <p class="card-text">Temperature: 98.3 F</p>
-                            <p class="card-text">Humidity: 41%</p>
-                            <p class="card-text">Wind Speed: 4.7 MPH</p>
+                            <h2 id="date" class="card-title"></h2>
+                            <p class="card-text temp">Temperature: 98.3 F</p>
+                            <p class="card-text humid">Humidity: 41%</p>
+                            <p class="card-text wind">Wind Speed: 4.7 MPH</p>
                             <!-- js to add differenct class based on uv index class="bg-success bg-warning bg-danger" for span id="uvIndexColor"-->
-                            <p class="card-text">UV Index: <span id="uvIndexColor" class="uvIndexColor-med">9.49</span></p>
+                            <p class="card-text uVIndex">UV Index: <span id="uvIndexColor" class="uvIndexColor-med">9.49</span></p>
                         </div>
                     </div>
                     <h3 class="fiveDayForecastHeader">5-day Forecast:</h3>
@@ -91,9 +91,10 @@
         </div>
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://kit.fontawesome.com/5dd824ca5f.js" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
         <script src="asset/weather.js"></script>
     </body>
 </html>
