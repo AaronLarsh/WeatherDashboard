@@ -32,3 +32,7 @@ div.card.bg-primary{
 .uvIndexColor-good{
     background-color: #1cc51c
 }
+
+.capitalize {
+    text-transform: capitalize;   
+}

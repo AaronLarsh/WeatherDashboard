@@ -1,4 +1,5 @@
 $( document ).ready(function() {
+
     //this loads a default set of cities
     let  citySearchResultsArray = ["Austin", "Chicago", "New York", "Orlando","San Francisco","Seattle","Denver","Atlanta"];
     $('#date').html(citySearchResultsArray[0])
@@ -12,9 +13,10 @@ $( document ).ready(function() {
         for (let i = 0; i < 8; i++) {
 
             //generating a tags for each search result
-            let aTag = $("<a>");
+            let aTag = $("<button>");
             // Adding a class
             aTag.addClass("list-group-item");
+            aTag.addClass("capitalize");
             // Added a data-attribute
             aTag.attr("data-name","SearchResult"+[i]);
             aTag.attr("href","#");
@@ -49,10 +51,10 @@ $( document ).ready(function() {
         event.preventDefault();
     
         // This line grabs the input from the textbox
-        var pastSearch = $('#searchForCity').val().trim();
-        var APIKey = "166a433c57516f51dfab1f7edaed8413";
+        let pastSearch = $('#searchForCity').val().trim();
+        let APIKey = "166a433c57516f51dfab1f7edaed8413";
         // Here we are building the URL we need to query the database
-        var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" +pastSearch+ "&appid=" + APIKey;
+        let queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" +pastSearch+ "&appid=" + APIKey;
     $.ajax({
         url: queryURL,
         method: "GET"
@@ -74,7 +76,30 @@ $( document ).ready(function() {
                 console.log(responseNew)
             })
         });
+    });
+    //listener for clicking on hrefs, this will search past results
+    $("a").on("click", function(event) {
+        event.preventDefault();
+        // This line grabs the input from the textbox
+        let pastSearch = this.text;
+        let APIKey = "166a433c57516f51dfab1f7edaed8413";
+        // Here we are building the URL we need to query the database
+        let queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" +pastSearch+ "&appid=" + APIKey;
+        $.ajax({
+            url: queryURL,
+            method: "GET"
+        })
+        .then(function(response) {
+            // Log the queryURL
+            //adds search result to list and removes last one
+            citySearchResultsArray.unshift(pastSearch);
+            citySearchResultsArray.pop(pastSearch);
+        
+            renderCityNames();
+            console.log(citySearchResultsArray);
+            $('#date').html(pastSearch)
+            $('#date').append(moment().format(' (MM/DD/YYYY)'));
 
-
+        });
     });
 });
