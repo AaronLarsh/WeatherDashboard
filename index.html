@@ -7,7 +7,6 @@
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <link rel="stylesheet" href="asset/style.css">
-        <script src="https://kit.fontawesome.com/5dd824ca5f.js" crossorigin="anonymous"></script>
         <title>Weather Dashboard</title>
     </head>
     <body>                            
@@ -26,19 +25,11 @@
                     <form >
                         <h5>Search for a City:</h5>
                         <div class="form-inline">
-                            <input type="text" class="form-control" id="searchForCity" name="searchForCity">
+                            <input type="text" class="form-control" id="searchForCity" name="searchForCity" placeholder="Enter City Name">
                             <button class="btn btn-primary" id="searchForCitySubmitBtn"><i class="fas fa-search"></i></button>
                         </div>
                     </form>
-                    <div class="list-group">
-                        <a href="#" class="list-group-item">Austin</a>
-                        <a href="#" class="list-group-item">Chicago</a>
-                        <a href="#" class="list-group-item">New York</a>
-                        <a href="#" class="list-group-item">Orlando</a>
-                        <a href="#" class="list-group-item">San Francisco</a>
-                        <a href="#" class="list-group-item">Seattle</a>
-                        <a href="#" class="list-group-item">Denver</a>
-                        <a href="#" class="list-group-item">Atlanta</a>
+                    <div id="pastSearchResults" class="list-group">
                     </div>
                 </div>
                 <div class="col-9">
@@ -102,7 +93,7 @@
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh6U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <script src="https://kit.fontawesome.com/5dd824ca5f.js" crossorigin="anonymous"></script>
         <script src="asset/weather.js"></script>
     </body>
 </html>
