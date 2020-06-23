@@ -78,7 +78,7 @@ $( document ).ready(function() {
         });
     });
     //listener for clicking on hrefs, this will search past results
-    $("a").on("click", function(event) {
+    $(".list-group-item").on("click", function(event) {
         event.preventDefault();
         // This line grabs the input from the textbox
         let pastSearch = this.text;
