@@ -18,6 +18,17 @@ div.form-inline{
 }
 
 div.card.bg-primary{
-    margin: 10px;
     color: white;
+}
+
+.uvIndexColor-bad{
+    background-color: red;
+}
+
+.uvIndexColor-med{
+    background-color: #e08e14;
+}
+
+.uvIndexColor-good{
+    background-color: #1cc51c
 }

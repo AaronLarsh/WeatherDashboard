@@ -7,6 +7,7 @@
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <link rel="stylesheet" href="asset/style.css">
+        <script src="https://kit.fontawesome.com/5dd824ca5f.js" crossorigin="anonymous"></script>
         <title>Weather Dashboard</title>
     </head>
     <body>                            
@@ -26,18 +27,18 @@
                         <h5>Search for a City:</h5>
                         <div class="form-inline">
                             <input type="text" class="form-control" id="searchForCity" name="searchForCity">
-                            <input type="submit" class="btn btn-primary" id="searchForCitySubmitBtn" value="Submit">
+                            <button class="btn btn-primary" id="searchForCitySubmitBtn"><i class="fas fa-search"></i></button>
                         </div>
                     </form>
                     <div class="list-group">
-                        <a href="#" class="list-group-item">Item One</a>
-                        <a href="#" class="list-group-item">Item Two</a>
-                        <a href="#" class="list-group-item">Item Three</a>
-                        <a href="#" class="list-group-item">Item Four</a>
-                        <a href="#" class="list-group-item">Item 5</a>
-                        <a href="#" class="list-group-item">Item 6</a>
-                        <a href="#" class="list-group-item">Item 7</a>
-                        <a href="#" class="list-group-item">Item 8</a>
+                        <a href="#" class="list-group-item">Austin</a>
+                        <a href="#" class="list-group-item">Chicago</a>
+                        <a href="#" class="list-group-item">New York</a>
+                        <a href="#" class="list-group-item">Orlando</a>
+                        <a href="#" class="list-group-item">San Francisco</a>
+                        <a href="#" class="list-group-item">Seattle</a>
+                        <a href="#" class="list-group-item">Denver</a>
+                        <a href="#" class="list-group-item">Atlanta</a>
                     </div>
                 </div>
                 <div class="col-9">
@@ -48,11 +49,11 @@
                             <p class="card-text">Humidity: 41%</p>
                             <p class="card-text">Wind Speed: 4.7 MPH</p>
                             <!-- js to add differenct class based on uv index class="bg-success bg-warning bg-danger" for span id="uvIndexColor"-->
-                            <p class="card-text">UV Index: <span id="uvIndexColor">9.49</span></p>
+                            <p class="card-text">UV Index: <span id="uvIndexColor" class="uvIndexColor-med">9.49</span></p>
                         </div>
                     </div>
                     <h3 class="fiveDayForecastHeader">5-day Forecast:</h3>
-                    <div class="card-group">
+                    <div class="card-deck">
                     <div class="card bg-primary">
                         <div class="card-body fiveDay">
                             <h5 class="card-title">8/15/2019</h5>
