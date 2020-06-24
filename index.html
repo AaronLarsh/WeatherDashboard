@@ -30,17 +30,18 @@
                         </div>
                     </form>
                     <div id="pastSearchResults" class="list-group">
+                        <!--This is where search past search results will go, will show up to 8-->
                     </div>
                 </div>
                 <div class="col-9">
                     <div id="mainWeatherBody"class="card">
                         <div class="card-body capitalize">
                             <h2 id="date" class="card-title"></h2>
-                            <p class="card-text temp">Temperature: 98.3 F</p>
-                            <p class="card-text humid">Humidity: 41%</p>
-                            <p class="card-text wind">Wind Speed: 4.7 MPH</p>
+                            <p id="main-temp" class="card-text">Temperature: 98.3 F</p>
+                            <p id="main-humid" class="card-text">Humidity: 41%</p>
+                            <p id="main-wind" class="card-text">Wind Speed: 4.7 MPH</p>
                             <!-- js to add differenct class based on uv index class="bg-success bg-warning bg-danger" for span id="uvIndexColor"-->
-                            <p class="card-text uVIndex">UV Index: <span id="uvIndexColor" class="uvIndexColor-med">9.49</span></p>
+                            <p id="main-UV" class="card-text uVIndex">UV Index: <span id="uvIndexColor" class="uvIndexColor-med">9.49</span></p>
                         </div>
                     </div>
                     <h3 class="fiveDayForecastHeader">5-day Forecast:</h3>
