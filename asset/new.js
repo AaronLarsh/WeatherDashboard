@@ -78,15 +78,20 @@ $( document ).ready(function() {
                 $("#weatherInfo5Day").append(fiveDayHeader);
                 //gives current day plus 1 day
                 for (let i = 1; i < 6; i++){
-                    let new_date = moment().add(`${i}`, 'd').format(' (MM/DD/YYYY)');
-                    console.log(new_date)
+                    let new_date = moment().add(`${i}`, 'd').format('MM/DD/YYYY');
+                    let dayOffWeek = responseNew.daily[i]
+                    let fiveDayTempConv = (Math.round((dayOffWeek.temp.max-273.15)*(9/5)+32))
+                    let iconWeather = dayOffWeek.weather[0].icon
+                    let iconWeatherUrl = "http://openweathermap.org/img/wn/" +iconWeather+ "@2x.png"
+
+                    console.log(iconWeatherUrl)
                 let fiveDayWeather = `
                     <div class="card bg-primary">
                         <div class="card-body fiveDay">
                             <h5 class="card-title">${new_date}</h5>
-                            <p class="card-text">Icon</p>
-                            <p class="card-text">Temp: 98.3 F</p>
-                            <p class="card-text">Humidity: 41%</p>
+                            <p class="card-text"><img src="${iconWeatherUrl}" alt="Weather Icon"></p>
+                            <p class="card-text">Temp: ${fiveDayTempConv} F</p>
+                            <p class="card-text">Humidity: ${dayOffWeek.humidity}%</p>
                         </div>
                     </div>
                 `;
@@ -117,7 +122,6 @@ $( document ).ready(function() {
                     if (uvIndexValue>=11) {
                     $("#uvIndexColor").addClass("uvIndexColor-extreme")
                     };
-                    console.log(responseNew.daily[1])
             })
         });
     });   
