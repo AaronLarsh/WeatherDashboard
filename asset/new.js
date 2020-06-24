@@ -35,7 +35,9 @@ $( document ).ready(function() {
     //ajax connected to search result
     $("#searchForCitySubmitBtn").on("click", function(event) {
         event.preventDefault();
-        $("#weatherInfo").empty();
+        $("#weatherInfoMain").empty();
+        $("#mainWeatherBody").empty();
+        $("#weatherInfo5Day").empty();
         // This line grabs the input from the textbox
         let pastSearch = $('#searchForCity').val().trim();
         let APIKey = "166a433c57516f51dfab1f7edaed8413";
@@ -70,57 +72,32 @@ $( document ).ready(function() {
                         <p id="main-UV" class="card-text"></p>
                     </div>
                 </div>`;
-
-                let fiveDayWeather = `<h3 class="fiveDayForecastHeader">5-day Forecast:</h3>
-                <div class="card-deck">
+                $("#weatherInfoMain").append(weatherMainHeaderArea);
+                let fiveDayHeader = `<h3 class="fiveDayForecastHeader">5-day Forecast:</h3>
+                <div class="card-deck"></div>`;
+                $("#weatherInfo5Day").append(fiveDayHeader);
+                //gives current day plus 1 day
+                for (let i = 1; i < 6; i++){
+                    let new_date = moment().add(`${i}`, 'd').format(' (MM/DD/YYYY)');
+                    console.log(new_date)
+                let fiveDayWeather = `
                     <div class="card bg-primary">
                         <div class="card-body fiveDay">
-                            <h5 class="card-title">8/15/2019</h5>
+                            <h5 class="card-title">${new_date}</h5>
                             <p class="card-text">Icon</p>
                             <p class="card-text">Temp: 98.3 F</p>
                             <p class="card-text">Humidity: 41%</p>
                         </div>
                     </div>
-                    <div class="card bg-primary">
-                        <div class="card-body fiveDay">
-                            <h5 class="card-title">8/15/2019</h5>
-                            <p class="card-text">Icon</p>
-                            <p class="card-text">Temp: 98.3 F</p>
-                            <p class="card-text">Humidity: 41%</p>
-                        </div>
-                    </div>
-                    <div class="card bg-primary">
-                        <div class="card-body fiveDay">
-                            <h5 class="card-title">8/15/2019</h5>
-                            <p class="card-text">Icon</p>
-                            <p class="card-text">Temp: 98.3 F</p>
-                            <p class="card-text">Humidity: 41%</p>
-                        </div>
-                    </div>
-                    <div class="card bg-primary">
-                        <div class="card-body fiveDay">
-                            <h5 class="card-title">8/15/2019</h5>
-                            <p class="card-text">Icon</p>
-                            <p class="card-text">Temp: 98.3 F</p>
-                            <p class="card-text">Humidity: 41%</p>
-                        </div>
-                    </div>
-                    <div class="card bg-primary">
-                        <div class="card-body fiveDay">
-                            <h5 class="card-title">8/15/2019</h5>
-                            <p class="card-text">Icon</p>
-                            <p class="card-text">Temp: 98.3 F</p>
-                            <p class="card-text">Humidity: 41%</p>
-                        </div>
-                    </div>
-                </div>
                 `;
-                $("#weatherInfo").append(weatherMainHeaderArea);
-                $("#weatherInfo").append(fiveDayWeather);
+                $("div.card-deck").append(fiveDayWeather);
+                }
 
+                //api calls
                 let uvIndex = `<span id="uvIndexColor">${uvIndexValue}</span>`;
                 $('#date').html(citySearchResultsArray[0])
-                $('#date').append(moment().format(' (MM/DD/YYYY)'));
+                let currentDate = (moment().format(' (MM/DD/YYYY)'))
+                $('#date').append(currentDate); 
 
                 let fTempConv = (Math.round((temp-273.15)*(9/5)+32))
                 $("#main-temp").text("Temperature: " + fTempConv +" F")
@@ -140,9 +117,8 @@ $( document ).ready(function() {
                     if (uvIndexValue>=11) {
                     $("#uvIndexColor").addClass("uvIndexColor-extreme")
                     };
-
-                    console.log(responseNew)
+                    console.log(responseNew.daily[1])
             })
         });
-    });    
+    });   
 });
