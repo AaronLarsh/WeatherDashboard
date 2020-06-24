@@ -21,15 +21,23 @@ div.card.bg-primary{
     color: white;
 }
 
-.uvIndexColor-bad{
-    background-color: red;
+.uvIndexColor-extreme{
+    background-color: #9a14b9 ;
 }
 
-.uvIndexColor-med{
-    background-color: #e08e14;
+.uvIndexColor-very-high{
+    background-color: #d00606;
 }
 
-.uvIndexColor-good{
+.uvIndexColor-high{
+    background-color: #d6580b;
+}
+
+.uvIndexColor-moderate{
+    background-color: #f1bf00;
+}
+
+.uvIndexColor-low{
     background-color: #1cc51c
 }
 

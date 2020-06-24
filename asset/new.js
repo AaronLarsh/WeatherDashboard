@@ -68,18 +68,28 @@ $( document ).ready(function() {
                 let temp = responseNew.current.temp
                 let hum = responseNew.current.humidity
                 let wind = responseNew.current.wind_speed
-                let uvIndex = responseNew.current.uvi
+                let uvIndexValue = responseNew.current.uvi
+                let uvIndex = `<span id="uvIndexColor">${uvIndexValue}</span>`;
 
-                console.log(uvIndex)
                 let fTempConv = (Math.round((temp-273.15)*(9/5)+32))
-                console.log(fTempConv)
                 $("#main-temp").text("Temperature: " + fTempConv +" F")
                 $("#main-humid").text("Humidity: " + hum +"%")
                 $("#main-wind").text("Wind Speed: " + wind +" MPH")
-                $("#main-UV").text("UV Index: " + uvIndex)
+                $("#main-UV").html(("UV Index: " + uvIndex));
 
-                
+                    if (uvIndexValue<=2) {
+                    $("#main-UV").addClass("uvIndexColor-low")
+                    }else if (uvIndexValue>=3 && uvIndexValue<=5.99) {
+                    $("#uvIndexColor").addClass("uvIndexColor-moderate")
+                    }else if (uvIndexValue>=6 && uvIndexValue<=7.99) {
+                    $("#uvIndexColor").addClass("uvIndexColor-high")
+                    }else if (uvIndexValue>=8 && uvIndexValue<=10.99) {
+                    $("#uvIndexColor").addClass("uvIndexColor-very-high")
+                    }else 
+                    if (uvIndexValue>=11) {
+                    $("#uvIndexColor").addClass("uvIndexColor-extreme")
+                    };
             })
         });
-    });
+    });    
 });
