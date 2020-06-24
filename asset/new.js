@@ -6,7 +6,6 @@ $( document ).ready(function() {
         $("#pastSearchResults").empty();
         //for loop that checks if array is not empty, if true then excute loop
         if (!(citySearchResultsArray === undefined || citySearchResultsArray.length == 0)){
-            console.log("true")
             for(let i=0; i <citySearchResultsArray.length; i++){
                 //creates a template string with html class/id tags
                 let searchResultHTML = 
@@ -19,7 +18,6 @@ $( document ).ready(function() {
     //listenere that runs teh fucntion render city name when clicking the submit button
     $("#searchForCitySubmitBtn").on("click", function(event) {
         event.preventDefault();
-        console.log(event)
         // This line grabs the input from the textbox
         var pastSearch = $('#searchForCity').val().trim();
     
@@ -29,7 +27,6 @@ $( document ).ready(function() {
         citySearchResultsArray.pop(pastSearch);
         };
         renderCityNames();
-        console.log(citySearchResultsArray);
         $('#date').html(pastSearch)
         $('#date').append(moment().format(' (MM/DD/YYYY)'));
         });
@@ -38,7 +35,7 @@ $( document ).ready(function() {
     //ajax connected to search result
     $("#searchForCitySubmitBtn").on("click", function(event) {
         event.preventDefault();
-    
+        $("#weatherInfo").empty();
         // This line grabs the input from the textbox
         let pastSearch = $('#searchForCity').val().trim();
         let APIKey = "166a433c57516f51dfab1f7edaed8413";
@@ -49,15 +46,11 @@ $( document ).ready(function() {
         method: "GET"
     })
         .then(function(response) {
-            // Log the queryURL
-            console.log(queryURL);
-
             // Log the resulting object lat and lon cords
             let lat = (response.coord.lat);
             let long = (response.coord.lon);
             // new qury url that incorparates coords from last ajax call
-            let queryURLNew = "https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + long + "&exclude=hourly,daily&appid=" + APIKey;
-            console.log(queryURLNew)
+            let queryURLNew = "https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + long + "&exclude=minutely,hourly&appid=" + APIKey;
             $.ajax({
                 url: queryURLNew,
                 method: "GET"
@@ -76,8 +69,9 @@ $( document ).ready(function() {
                         <p id="main-wind" class="card-text"></p>
                         <p id="main-UV" class="card-text"></p>
                     </div>
-                </div>
-                <h3 class="fiveDayForecastHeader">5-day Forecast:</h3>
+                </div>`;
+
+                let fiveDayWeather = `<h3 class="fiveDayForecastHeader">5-day Forecast:</h3>
                 <div class="card-deck">
                     <div class="card bg-primary">
                         <div class="card-body fiveDay">
@@ -121,7 +115,9 @@ $( document ).ready(function() {
                     </div>
                 </div>
                 `;
-                $("#weatherInfo").html(weatherMainHeaderArea);
+                $("#weatherInfo").append(weatherMainHeaderArea);
+                $("#weatherInfo").append(fiveDayWeather);
+
                 let uvIndex = `<span id="uvIndexColor">${uvIndexValue}</span>`;
                 $('#date').html(citySearchResultsArray[0])
                 $('#date').append(moment().format(' (MM/DD/YYYY)'));
@@ -144,6 +140,8 @@ $( document ).ready(function() {
                     if (uvIndexValue>=11) {
                     $("#uvIndexColor").addClass("uvIndexColor-extreme")
                     };
+
+                    console.log(responseNew)
             })
         });
     });    
