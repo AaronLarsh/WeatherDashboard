@@ -98,11 +98,13 @@ $( document ).ready(function() {
                 $("div.card-deck").append(fiveDayWeather);
                 }
 
-                //api calls
                 let uvIndex = `<span id="uvIndexColor">${uvIndexValue}</span>`;
                 $('#date').html(citySearchResultsArray[0])
                 let currentDate = (moment().format(' (MM/DD/YYYY)'))
                 $('#date').append(currentDate); 
+                let iconWeather = (responseNew.current.weather[0].icon)
+                let iconWeatherUrl = `<img src = "http://openweathermap.org/img/wn/${iconWeather}@2x.png" alt="Weather Icon">`
+                $('#date').append(iconWeatherUrl); 
 
                 let fTempConv = (Math.round((temp-273.15)*(9/5)+32))
                 $("#main-temp").text("Temperature: " + fTempConv +" F")
