@@ -1,8 +1,6 @@
 $( document ).ready(function() {
     //this loads a default set of cities
     let  citySearchResultsArray = [];
-    $('#date').html(citySearchResultsArray[0])
-    $('#date').append(moment().format(' (MM/DD/YYYY)'));
     //function
     function renderCityNames() {
         $("#pastSearchResults").empty();
@@ -69,7 +67,21 @@ $( document ).ready(function() {
                 let hum = responseNew.current.humidity
                 let wind = responseNew.current.wind_speed
                 let uvIndexValue = responseNew.current.uvi
+                let weatherMainHeaderArea = `
+                <div id="mainWeatherBody"class="card">
+                    <div class="card-body capitalize">
+                        <h2 id="date" class="card-title"></h2>
+                        <p id="main-temp" class="card-text"></p>
+                        <p id="main-humid" class="card-text"></p>
+                        <p id="main-wind" class="card-text"></p>
+                        <p id="main-UV" class="card-text"></p>
+                    </div>
+                </div>
+                `;
+                $("#weatherInfo").prepend(weatherMainHeaderArea);
                 let uvIndex = `<span id="uvIndexColor">${uvIndexValue}</span>`;
+                $('#date').html(citySearchResultsArray[0])
+                $('#date').append(moment().format(' (MM/DD/YYYY)'));
 
                 let fTempConv = (Math.round((temp-273.15)*(9/5)+32))
                 $("#main-temp").text("Temperature: " + fTempConv +" F")
