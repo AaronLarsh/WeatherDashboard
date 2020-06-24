@@ -5,6 +5,8 @@
     margin-bottom: 10px;
 }
 
+
+
 div.list-group > a {
     color: grey; 
 }
@@ -18,6 +20,11 @@ div.form-inline{
 }
 
 div.card.bg-primary{
+    color: white;
+}
+
+#uvIndexColor {
+    padding: 4px;
     color: white;
 }
 
