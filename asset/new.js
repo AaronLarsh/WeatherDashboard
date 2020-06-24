@@ -77,8 +77,51 @@ $( document ).ready(function() {
                         <p id="main-UV" class="card-text"></p>
                     </div>
                 </div>
+                <h3 class="fiveDayForecastHeader">5-day Forecast:</h3>
+                <div class="card-deck">
+                    <div class="card bg-primary">
+                        <div class="card-body fiveDay">
+                            <h5 class="card-title">8/15/2019</h5>
+                            <p class="card-text">Icon</p>
+                            <p class="card-text">Temp: 98.3 F</p>
+                            <p class="card-text">Humidity: 41%</p>
+                        </div>
+                    </div>
+                    <div class="card bg-primary">
+                        <div class="card-body fiveDay">
+                            <h5 class="card-title">8/15/2019</h5>
+                            <p class="card-text">Icon</p>
+                            <p class="card-text">Temp: 98.3 F</p>
+                            <p class="card-text">Humidity: 41%</p>
+                        </div>
+                    </div>
+                    <div class="card bg-primary">
+                        <div class="card-body fiveDay">
+                            <h5 class="card-title">8/15/2019</h5>
+                            <p class="card-text">Icon</p>
+                            <p class="card-text">Temp: 98.3 F</p>
+                            <p class="card-text">Humidity: 41%</p>
+                        </div>
+                    </div>
+                    <div class="card bg-primary">
+                        <div class="card-body fiveDay">
+                            <h5 class="card-title">8/15/2019</h5>
+                            <p class="card-text">Icon</p>
+                            <p class="card-text">Temp: 98.3 F</p>
+                            <p class="card-text">Humidity: 41%</p>
+                        </div>
+                    </div>
+                    <div class="card bg-primary">
+                        <div class="card-body fiveDay">
+                            <h5 class="card-title">8/15/2019</h5>
+                            <p class="card-text">Icon</p>
+                            <p class="card-text">Temp: 98.3 F</p>
+                            <p class="card-text">Humidity: 41%</p>
+                        </div>
+                    </div>
+                </div>
                 `;
-                $("#weatherInfo").prepend(weatherMainHeaderArea);
+                $("#weatherInfo").html(weatherMainHeaderArea);
                 let uvIndex = `<span id="uvIndexColor">${uvIndexValue}</span>`;
                 $('#date').html(citySearchResultsArray[0])
                 $('#date').append(moment().format(' (MM/DD/YYYY)'));
