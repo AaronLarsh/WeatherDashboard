@@ -9,26 +9,35 @@ $( document ).ready(function() {
             for(let i=0; i <citySearchResultsArray.length; i++){
                 //creates a template string with html class/id tags
                 let searchResultHTML = 
-                        `<button id="searchItem${i}" class="list-group-item capitalize" data-name="SearchResult${i}" href="#">${citySearchResultsArray[i]}</button>`;
+                        `<button id="searchItem${i}" class="list-group-item capitalize" data-name="searchResult">${citySearchResultsArray[i]}</button>`;
                 //appends searchResultHTML to #pastSearchResults
                 $("#pastSearchResults").append(searchResultHTML);
-                localStorage.setItem(`SearchResult`,JSON.stringify(citySearchResultsArray))
+                localStorage.setItem(`searchResult`,JSON.stringify(citySearchResultsArray))
             };
         };
     };
 
-    if(localStorage.getItem(`SearchResult`)){
-        citySearchResultsArray = JSON.parse(localStorage.getItem(`SearchResult`))
+    if(localStorage.getItem(`searchResult`)){
+        citySearchResultsArray = JSON.parse(localStorage.getItem(`searchResult`))
     }
     renderCityNames()
     //listenere that runs teh fucntion render city name when clicking the submit button
-    $("#searchForCitySubmitBtn").on("click", function(event) {
+    $("button").on("click", function(event) {
         event.preventDefault();
+        //event.currentTarget.textContent
         $("#weatherInfoMain").empty();
         $("#mainWeatherBody").empty();
         $("#weatherInfo5Day").empty();
-                // This line grabs the input from the textbox
-        let pastSearch = $('#searchForCity').val().trim();
+                // This line grabs the input from the textbox event.currentTarget.textContent
+        //if(this = $("#searchForCitySubmitBtn"))
+        if (event.currentTarget.attributes[2].nodeValue == "searchResult"){
+            var pastSearch = event.currentTarget.textContent;
+            console.log(pastSearch);
+        } else if (event.currentTarget.attributes[2].nodeValue == "searchButtonBtn"){
+            var pastSearch = ($('#searchForCity').val().trim());
+            console.log(pastSearch);
+        };
+        console.log(pastSearch);
         //clears out search box after search
         $("#searchForCity").val('');
         if(pastSearch === ''){

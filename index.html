@@ -26,12 +26,15 @@
                         <h5>Search for a City:</h5>
                         <div class="form-inline">
                             <input type="text" class="form-control" id="searchForCity" name="searchForCity" placeholder="Enter City Name">
-                            <button class="btn btn-primary" id="searchForCitySubmitBtn"><i class="fas fa-search"></i></button>
+                            <button class="btn btn-primary" id="searchForCitySubmitBtn" data-name="searchButtonBtn"><i class="fas fa-search"></i></button>
                         </div>
                     </form>
+                    <form>
+                    <h6>Double click past result results to search again!</h6>
                     <div id="pastSearchResults" class="list-group">
                         <!--This is where search past search results will go, will show up to 8-->
                     </div>
+                    </form>
                 </div>
                     <div id="weatherInfo" class="col-9">
                         <div id="weatherInfoMain"></div>
