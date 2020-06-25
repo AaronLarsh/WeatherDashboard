@@ -29,6 +29,8 @@ $( document ).ready(function() {
         $("#weatherInfo5Day").empty();
                 // This line grabs the input from the textbox
         let pastSearch = $('#searchForCity').val().trim();
+        //clears out search box after search
+        $("#searchForCity").val('');
         if(pastSearch === ''){
             return
         } else {
