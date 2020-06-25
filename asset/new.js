@@ -7,11 +7,15 @@ $( document ).ready(function() {
         //for loop that checks if array is not empty, if true then excute loop
         if (!(citySearchResultsArray === undefined || citySearchResultsArray.length == 0)){
             for(let i=0; i <citySearchResultsArray.length; i++){
+                
                 //creates a template string with html class/id tags
                 let searchResultHTML = 
                         `<button id="searchItem${i}" class="list-group-item capitalize" data-name="SearchResult${i}" href="#">${citySearchResultsArray[i]}</button>`;
                 //appends searchResultHTML to #pastSearchResults
                 $("#pastSearchResults").append(searchResultHTML);
+                localStorage.setItem(`SearchResult${i}`,citySearchResultsArray[i])
+               // $(`[data-name ="SearchResult${i}"]`).text() = localStorage.getItem(`SearchResult${i}`)
+                console.log($(`[data-name ="SearchResult${i}"]`).text())
             };
         };
     };
@@ -31,7 +35,6 @@ $( document ).ready(function() {
         $('#date').append(moment().format(' (MM/DD/YYYY)'));
         });
     renderCityNames()
-
     //ajax connected to search result
     $("#searchForCitySubmitBtn").on("click", function(event) {
         event.preventDefault();
@@ -83,8 +86,6 @@ $( document ).ready(function() {
                     let fiveDayTempConv = (Math.round((dayOffWeek.temp.max-273.15)*(9/5)+32))
                     let iconWeather = dayOffWeek.weather[0].icon
                     let iconWeatherUrl = "http://openweathermap.org/img/wn/" +iconWeather+ "@2x.png"
-
-                    console.log(iconWeatherUrl)
                 let fiveDayWeather = `
                     <div class="card bg-primary">
                         <div class="card-body fiveDay">
