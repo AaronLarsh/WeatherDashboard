@@ -13,17 +13,22 @@ $( document ).ready(function() {
                         `<button id="searchItem${i}" class="list-group-item capitalize" data-name="SearchResult${i}" href="#">${citySearchResultsArray[i]}</button>`;
                 //appends searchResultHTML to #pastSearchResults
                 $("#pastSearchResults").append(searchResultHTML);
-                localStorage.setItem(`SearchResult${i}`,citySearchResultsArray[i])
+                localStorage.setItem(`SearchResult`,JSON.stringify(citySearchResultsArray))
                // $(`[data-name ="SearchResult${i}"]`).text() = localStorage.getItem(`SearchResult${i}`)
                 console.log($(`[data-name ="SearchResult${i}"]`).text())
             };
         };
     };
+
+    if(localStorage.getItem(`SearchResult`)){
+        citySearchResultsArray = JSON.parse(localStorage.getItem(`SearchResult`))
+    }
+    
     //listenere that runs teh fucntion render city name when clicking the submit button
     $("#searchForCitySubmitBtn").on("click", function(event) {
         event.preventDefault();
         // This line grabs the input from the textbox
-        var pastSearch = $('#searchForCity').val().trim();
+        let pastSearch = $('#searchForCity').val().trim();
     
         //adds search result to list and removes last one
         citySearchResultsArray.unshift(pastSearch);
